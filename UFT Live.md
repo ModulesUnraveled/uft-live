@@ -195,6 +195,8 @@ Libraries are defined in `uft.libraries.yml`. They are named, and contain the cs
 
 In `03-organisms/accordion/accordion.twig` you can see how we add a library with the `{{ attach_library('uft/LIBRARY_NAME') }}` syntax.
 
+Adding `attach_library` to any twig file will tell the page that it should load the associated library any time that Twig template is used. This means the accordion js, for example, will only load on pages that actually have an accordion on them.
+
 ## Javascript
 ### Writing JS to work in both PL and Drupal
 The `03-organisms/slideshow/slideshow.js` file shows how to write Drupal specific JS for when you need to use Drupal behaviors. The `03-organisms/accordion/accordion.js` file shows vanilla JS that will work in both places too.
