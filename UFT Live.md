@@ -48,6 +48,7 @@ I will do my best to consistently use the terms "Design Pattern" and "Component"
 
 I find it helpful to differentiate between a "Design Pattern" and a "Component".
 
+## Definitions
 **A Component** is the structure of the thing. Think of it like the type of wood you choose to make cabinets out of, the nails you use to hold it together, and the structural design - like how many shelves are they going to have, and whether or not there will be pull-out drawers.
 
 In frontend speak, this is the collection of html elements used to make a component. e.g. A heading, an image, some text, and an a tag that wraps the whole thing to make it all link somewhere.
@@ -136,12 +137,15 @@ These files are all strictly for Pattern Lab demonstration. They will never be i
 These can be created liberally to demonstrate different content layout possibilities. They are highly useful when creating new components because they show how that new component will interact with other content on the page. Doing so will often reveal layout and spacing issues that weren't considered when the component was being created in isolation.
 
 ### Create brand new component
--
+To create new components, you just write the twig file, and any necessary scss and js files. You will need to stop and restart the `start` command in order to pick up _new_ files, but changes will be auto-refreshed.
 
 ## Twig
--
+Like you've already seen, Twig files are basically HTML files that support things like variables, and including other twig files. A Twig file could be entirely vanilla HTML, entirely Includes, Extends, or Embeds or a combination.
 
 ## Sass workflow
+There is a `start` command defined in the theme's `package.json` file that runs the build scripts, and starts a browsersync session where you can view the current code, and any changes in real time.
+
+### scss conventions
 We're using sass globbing, so any file that starts with an underscore will be concatenated into the style.scss file, and written out to css.
 
 There's nothing special about the sass, it's very standard.
@@ -170,7 +174,11 @@ That will compile to:
 .cad--basic__content {... stuff 3 ...}
 
 ### Sass variables
-The `00-base` folder has all of the
+The `00-base` folder has all of the site-wide variables. Like font-sizes, colors, spacing variables, site-wide layout breakpoints, etc. There's actually not a whole lot in here, because we also create component-specific variables and breakpoints as needed.
+
+For example, the `_flexible-grid.scss` file has a couple of breakpoints defined at the top, which are re-used throughout that file. The colors are only used in one place in this file, so they're just written inline.
+
+The `_link.scss` file has a color defined at the top, because it's re-used multiple times throughout the file, and I just want to be able to change it in one place, and know that it's updated everywhere it should be.
 
 ## Bem and other functions
 ### What is BEM?
